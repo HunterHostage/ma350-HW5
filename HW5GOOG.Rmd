@@ -6,6 +6,8 @@ output: html_notebook
 # Homework 5
 
 ## Part I
+
+### 1
 ```{r}
 rankcor <- function(x, y){
   n <- length(x)
@@ -13,27 +15,32 @@ rankcor <- function(x, y){
   stopifnot(length(y) == n)
   #Stops function if length of y is not equal to length of n
   x.ranks <- rank(x)
-  #
+  #Ranks values in x from most negative to least negative
+  
   y.ranks <- rank(y)
-  #
+  #Ranks values in y from most to least negative
+  
   mean.x <- mean(x.ranks)
-  #
+  #Finds average of ranked X values
+  
   mean.y <- mean(y.ranks)
-  #
+  #Finds average of ranked Y values
+  
   covariance.term <- cov(x.ranks - mean.x, y.ranks - mean.y)
-  #
+  #Assigns and finds a covariance variable
+  
   sd.x <- sd(x.ranks)
-  #
+  #Finds standard deviation of ranked X data
+  
   sd.y <- sd(y.ranks)
-  #
+  #Finds standard deviation of ranked Y data
+  
   rank.cor <- covariance.term / (sd.x*sd.y)
-  #
+  #Provides rank correlation result from given data
+  
   return(rank.cor)
 }
 ```
-
-### 1
-
 
 ### 2
 ```{r}
