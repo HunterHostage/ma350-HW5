@@ -90,7 +90,6 @@ testrankcor()
 ### 6
 ```{r}
 rankcor <- function(x, y){
-  browser()
   n <- length(x)
   stopifnot(length(y) == n)
   
@@ -137,9 +136,78 @@ testrankcor()
 
 ### 8
 ```{r}
-
+rankcor <- function(x, y){
+  n <- length(x)
+  stopifnot(length(y) == n)
+  
+  x.ranks <- rank(x)
+  y.ranks <- rank(y)
+  
+  mean.x <- (n+1)/2
+  mean.y <- (n+1)/2
+  
+  covariance.term <- cov(x.ranks - mean.x, y.ranks - mean.y)
+  
+  sd.x <- sd(x.ranks)
+  sd.y <- sd(y.ranks)
+  
+  rank.cor <- covariance.term / (sd.x*sd.y)
+  
+  return(rank.cor)
+}
 ```
 
+```{r}
+testrankcor()
+```
+The average rank of this is because of the Integer sum Formula and the fact that the formula can be simplified to (n+1)/2
+
 ### 9
+```{r}
+rankcor <- function(x, y){
+  n <- length(x)
+  stopifnot(length(y) == n)
+  
+  x.ranks <- rank(x)
+  y.ranks <- rank(y)
+  
+  mean.x <- (n+1)/2
+  mean.y <- (n+1)/2
+  
+  covariance.term <- cov(x.ranks, y.ranks)
+  
+  sd.x <- sd(x.ranks)
+  sd.y <- sd(y.ranks)
+  
+  rank.cor <- covariance.term / (sd.x*sd.y)
+  
+  return(rank.cor)
+}
+testrankcor()
+```
+We do not need to subtract the mean because cov() already does it for us. 
 
 ### 10
+```{r}
+rankcor <- function(x, y){
+  n <- length(x)
+  stopifnot(length(y) == n)
+  
+  x.ranks <- rank(x)
+  y.ranks <- rank(y)
+  
+  mean.x <- (n+1)/2
+  mean.y <- (n+1)/2
+  
+  covariance.term <- cov(x.ranks, y.ranks)
+  
+
+  sd.ranks= sqrt(n*(n+1)/12)
+  rank.cor <- covariance.term / (sd.ranks)
+  
+  return(rank.cor)
+}
+testrankcor()
+```
+I could not get it to pass and I did not want to bother you anymore.
+
