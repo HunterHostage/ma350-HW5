@@ -20,7 +20,7 @@ rankcor <- function(x, y){
   #
   mean.y <- mean(y.ranks)
   #
-  covariance.term <- cov(x.ranks - mean.x, y - mean.y)
+  covariance.term <- cov(x.ranks - mean.x, y.ranks - mean.y)
   #
   sd.x <- sd(x.ranks)
   #
@@ -93,7 +93,7 @@ rankcor <- function(x, y){
   mean.x <- mean(x.ranks)
   mean.y <- mean(y.ranks)
   
-  covariance.term <- cov(x.ranks - mean.x, y - mean.y)
+  covariance.term <- cov(x.ranks - mean.x, y.ranks - mean.y)
   
   sd.x <- sd(x.ranks)
   sd.y <- sd(y.ranks)
@@ -106,10 +106,32 @@ rankcor <- function(x, y){
 When assigning the covariance term, the function is using y, not y.ranks.
 
 ### 7
+```{r}
+testrankcor=function( FUN=rankcor){
+  x= c(2,4,6,8)
+  y= c(64,36,16,4)
+
+  x.new= c(4,5,6,7)
+  y.new= c(4,5,6,7)
+  
+  rankcor.first= rankcor(x,y)
+  rankcor.second= rankcor(x.new,y.new)
+  
+  if(isTRUE(all.equal(rankcor.first,-1))){
+    if(isTRUE(all.equal(rankcor.second,1))){
+      return(TRUE)
+    }else{ warning( "Problem 4 Vectors Do not Pass")}
+  }else{ warning("Problem 2 Vector Do not Pass")}
+}
+testrankcor()
+```
 
 ## Part III
 
 ### 8
+```{r}
+
+```
 
 ### 9
 
