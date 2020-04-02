@@ -3,11 +3,11 @@ title: "HW 5 GOOG"
 Author: "Hunter Hostage"
 output: html_notebook
 ---
-# Homework 5
+# -Homework 5-
 
-## Part I
+## Part I:
 
-### 1
+### 1.
 ```{r}
 rankcor <- function(x, y){
   n <- length(x)
@@ -42,7 +42,7 @@ rankcor <- function(x, y){
 }
 ```
 
-### 2
+### 2.
 ```{r}
 x=c(2,4,6,8)
 y= c(64,36,16,4)
@@ -50,12 +50,12 @@ rankcor(x,y)
 ```
 I get a value of -20. 
 
-### 3
+### 3.
 1. Value is incorrect because it is not within -1-1. 
 
 2.
 
-### 4
+### 4.
 ```{r}
 x.new= c(4,5,6,7)
 y.new= c(4,5,6,7)
@@ -64,9 +64,9 @@ rankcor(x.new,y.new)
 ```
 
 
-## Part II
+## Part II:
 
-### 5
+### 5.
 ```{r}
 testrankcor=function( FUN=rankcor){
   x= c(2,4,6,8)
@@ -87,7 +87,7 @@ testrankcor=function( FUN=rankcor){
 testrankcor()
 ```
 
-### 6
+### 6.
 ```{r}
 rankcor <- function(x, y){
   n <- length(x)
@@ -111,7 +111,7 @@ rankcor <- function(x, y){
 ```
 When assigning the covariance term, the function is using y, not y.ranks.
 
-### 7
+### 7.
 ```{r}
 testrankcor=function( FUN=rankcor){
   x= c(2,4,6,8)
@@ -132,9 +132,9 @@ testrankcor=function( FUN=rankcor){
 testrankcor()
 ```
 
-## Part III
+## Part III:
 
-### 8
+### 8.
 ```{r}
 rankcor <- function(x, y){
   n <- length(x)
@@ -162,7 +162,7 @@ testrankcor()
 ```
 The average rank of this is because of the Integer sum Formula and the fact that the formula can be simplified to (n+1)/2
 
-### 9
+### 9.
 ```{r}
 rankcor <- function(x, y){
   n <- length(x)
@@ -187,7 +187,7 @@ testrankcor()
 ```
 We do not need to subtract the mean because cov() already does it for us. 
 
-### 10
+### 10.
 ```{r}
 rankcor <- function(x, y){
   n <- length(x)
